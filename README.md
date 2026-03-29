@@ -113,6 +113,16 @@ Verification & Visualization
   - Time-series of fare evolution for select occupancy levels
 - Outputs are saved as `dynamic_fare_surface.png` and `fare_evolution.png` for sharing or presentation slides.
 
+Contributors
+------------
+
+Harsha Boddhu
+Spandana Konda 
+Srikar Chetti
+Gudaru Pragathi
+Sanket Wathore
+Srirang Nabar
+
 References & Citation
 ---------------------
 
