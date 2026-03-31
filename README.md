@@ -32,6 +32,7 @@ Project Structure
 -----------------
 
 - `singh_et_al_replication.ipynb`: Detailed walkthrough, examples, and plots showcasing the pricing surface, scenario outputs, adjustment impact, and fairness verification.
+- `VandeBharat_Complete_Data.csv`: Data for 82 Vande Bharat trains with occupancy and fare data.
 - `main.py`: Minimal starter (`Hello from project!`); use it as a template if you want to wrap the model into a CLI or script.
 - `pyproject.toml` / `uv.lock`: Poetry-style metadata defining Python >= 3.13 and key dependencies (`jupyter`, `matplotlib`, `pandas`).
 - `*.pdf`: Reference papers, including the computed dynamic pricing model and the broader revenue management literature.
@@ -111,7 +112,33 @@ Verification & Visualization
   - 3D surface plot of total fare vs. occupancy × days remaining
   - Heatmap of fare multipliers with contour thresholds at 0.8, 1, 1.2, 1.4
   - Time-series of fare evolution for select occupancy levels
-- Outputs are saved as `dynamic_fare_surface.png` and `fare_evolution.png` for sharing or presentation slides.
+- Outputs are saved as:
+  - `dynamic_fare_surface.png` - 3D pricing surface and fare multiplier heatmap
+  - `fare_evolution.png` - fare evolution over time for different occupancy levels
+  - `vandebharat_fare_distribution.png` - fare multiplier distributions for CC and EC classes
+  - `vandebharat_revenue_gain.png` - top 10 trains by revenue gain for CC and EC
+
+Vande Bharat Data Analysis
+-------------------------
+
+The notebook includes a complete analysis of the `VandeBharat_Complete_Data.csv` dataset (Sections 9-13):
+
+- **Dataset**: 82 Vande Bharat trains with 20 days of occupancy data (March 31 - April 19)
+- **Analysis covers both fare classes**:
+  - **Chair Car (CC)**: Using CC Fare and average CC occupancy
+  - **Executive Chair (EC)**: Using EC Fare and average EC occupancy
+- **Model Parameters**: Weight (w)=0.187, Multiplier (M)=0.5, Max Booking Days=120, Fare Range=0.8× to 1.4×
+
+### Key Results
+
+| Class | Current Avg Fare | Dynamic Avg Fare | Avg Multiplier | Revenue Gain |
+|-------|-----------------|-----------------|----------------|--------------|
+| Chair Car | ₹1,105 | ₹1,332 | 1.205× | ₹34.5M (69.4%) |
+| Executive Chair | ₹2,050 | ₹2,398 | 1.172× | ₹9.3M (81.9%) |
+
+**Combined Impact**: 70.6% revenue increase (₹44M additional revenue per 20-day period)
+
+The analysis demonstrates the revenue potential of implementing dynamic pricing on Vande Bharat trains, with EC class showing higher percentage gains due to typically lower base occupancy.
 
 Contributors
 ------------

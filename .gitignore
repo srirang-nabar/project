@@ -9,7 +9,8 @@ wheels/
 # Virtual environments
 .venv
 
-# pdfs
+# pdfs and csv
 *.pdf
+*.csv
 
 main.py
