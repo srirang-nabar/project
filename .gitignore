@@ -9,8 +9,20 @@ wheels/
 # Virtual environments
 .venv
 
-# pdfs and csv
+# pdfs and csv tex supplimentary files
 *.pdf
 *.csv
+
+# LaTeX auxiliary files
+# everything except the main .tex file and the generated .pdf
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.nav
+*.snm
 
 main.py
